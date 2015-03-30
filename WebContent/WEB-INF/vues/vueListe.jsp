@@ -10,6 +10,7 @@ MetierVarietes metier = new MetierVarietes();
 <head>
 <!-- <link rel="stylesheet" type="text/css" href="../nuceus01/WEB-INF/style/boostrap/css/bootstrap.min.css"> -->
 <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="style.css" rel="stylesheet"/>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Nucleus 0.1</title>
@@ -27,11 +28,13 @@ MetierVarietes metier = new MetierVarietes();
 	<tr>
 	<th style="color:white;text-align:center;">Libellé</th>
 	<th style="color:white;text-align:center;">AOC</th>
+	<th style="color:white;text-align:center;">Supprimer</th>
 	</tr>
 	</thead>
 	<tbody>
 	<%
-	int number = 2; 
+	int number = 2;
+	int i =0;
 	for(Variete variete : varietes){
 
 if ( (number % 2) == 0) {
@@ -55,15 +58,18 @@ else{
 	
 	<td style="text-align:center;"><%= "Non" %></td>
 	<%} %>
+	<td style="text-align:center;font-weight: bold;width:60px;"><form><button onclick="confirm('Voulez-vous vraiment supprimer cette variété ?')" class="btn" style="background-color:transparent;"><i class="glyphicon glyphicon-trash"></i></button>
+	<input type="hidden" name="idVariete" value="<%= variete.getLibelle() %>"/>
+		<input type="hidden" name="action" value="supprimer"/>
+	</form>
+	</td>
 	<%
-	number+=1;} %>
+	number+=1; } %>
+	
 	</tbody>
 	</table>
 		<div style="margin-left:auto;margin-right:auto;text-align:center;"><a href="?action=renseignerAjout"><button  class="btn btn-default">Ajouter une variété</button></a></div>
 	</div>
 	</div>
-</body>
-</html>
-
 </body>
 </html>

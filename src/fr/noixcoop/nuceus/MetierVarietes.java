@@ -53,11 +53,27 @@ public class MetierVarietes {
 		return pos ;
 	}
 	
-	public boolean ajouter(Variete variete){
-		this.varietes.add(variete);
+	public boolean ajouter(String variete, boolean aoc){
+		this.varietes.add(new Variete(variete, aoc));
 		return true;
 	}
 	
+	public boolean supprimer(String libelle){
+		int pos = rechercher(libelle) ;
+		if(pos != -1){
+			varietes.remove(pos) ;
+			return true ;
+		}
+		
+		else {
+			return false ;
+		}
+	}
+	
+	public boolean supprimerVariete(String libelle){
+		varietes.remove(libelle);
+		return true;
+	}
 	
 
 }

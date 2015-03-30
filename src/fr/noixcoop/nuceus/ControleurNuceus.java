@@ -58,10 +58,18 @@ public class ControleurNuceus extends HttpServlet {
 				aoc="oui";
 				aocObtenu=true;
 			}
-			boolean ajoutOk = metierVarietes.ajouter(new Variete(libelle,aocObtenu));
+			boolean ajoutOk = metierVarietes.ajouter(libelle,aocObtenu);
 			request.setAttribute("libelle", request.getParameter("libelle"));
 			request.setAttribute("AOC", aoc);
 			getServletContext().getRequestDispatcher("/WEB-INF/vues/vueResultatAjout.jsp").forward(request, response);
+			
+		}
+		
+		else if(action.equals("supprimer")){
+			String libelle = request.getParameter("libelle");
+			if(metierVarietes.supprimerVariete(libelle)){
+				getServletContext().getRequestDispatcher("/WEB-INF/vues/vueListe.jsp").forward(request, response);
+			};
 		}
 	}
 

@@ -82,7 +82,7 @@ else{
 	<td style="text-align:center;"><%= "Non" %></td>
 	<%} %>
 	<td style="text-align:center;font-weight: bold;width:60px;"><form><button onclick="confirm('Voulez-vous vraiment supprimer cette variété ?')" class="btn" style="background-color:transparent;"><i class="glyphicon glyphicon-trash"></i></button>
-	<input type="hidden" name="idVariete" value="<%= variete.getLibelle() %>"/>
+	<input type="hidden" name="libelle" value="<%= variete.getLibelle() %>"/>
 		<input type="hidden" name="action" value="supprimer"/>
 	</form>
 	</td>

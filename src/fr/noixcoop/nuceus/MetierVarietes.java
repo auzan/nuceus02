@@ -53,6 +53,17 @@ public class MetierVarietes {
 		return pos ;
 	}
 	
+	public boolean rechercherPuissant(String libelle){
+		boolean val = false;
+		int i = 0;
+		while(i < varietes.size() && val==false){
+			if(libelle.toUpperCase().equals(varietes.get(i).getLibelle().toUpperCase())){
+				val = true;
+				}
+			}
+		return val;
+	}
+	
 	public boolean ajouter(String variete, boolean aoc){
 		this.varietes.add(new Variete(variete, aoc));
 		return true;

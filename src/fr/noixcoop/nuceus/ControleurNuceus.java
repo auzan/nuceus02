@@ -66,10 +66,17 @@ public class ControleurNuceus extends HttpServlet {
 		}
 		
 		else if(action.equals("supprimer")){
+			
 			String libelle = request.getParameter("libelle");
-			if(metierVarietes.supprimer(libelle)){
-				getServletContext().getRequestDispatcher("/WEB-INF/vues/vueListe.jsp").forward(request, response);
-			};
+			if (metierVarietes.rechercherPuissant(libelle)){
+				if(metierVarietes.supprimer(libelle)){
+					getServletContext().getRequestDispatcher("/WEB-INF/vues/vueListe.jsp").forward(request, response);
+				}
+			}
+			else{
+				getServletContext().getRequestDispatcher("/WEB-INF/vues/varieteInexistante.jsp").forward(request, response);
+
+			}
 		}
 	}
 
